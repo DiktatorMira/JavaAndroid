@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Главная страница -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main_layout_bg">#8ba0b1</color>
+    <color name="button_bg">#365C83</color>
+    <!-- Калькулятор -->
+    <color name="calc_text">#c8c8cb</color>
+    <color name="calc_dark_text">#b1b1b4</color>
+    <color name="calc_layout_bg">#1a1a1b</color>
+    <color name="calc_button_func_bg">#363637</color>
+    <color name="calc_button_digit_bg">#474748</color>
+    <color name="calc_button_equal_bg">#2a4993</color>
+    <color name="calc_button_memory_bg">#2d2d2e</color>
+</resources>
