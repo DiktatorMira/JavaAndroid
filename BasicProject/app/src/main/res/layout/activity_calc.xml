@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -8,6 +7,7 @@
     android:orientation="vertical"
     android:background="@color/calc_layout_bg"
     tools:context=".CalcActivity">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,46 +43,38 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="5dp">
-        <Button
-            android:id="@+id/calc_btn_mc"
-            style="@style/calc_btn_func"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="MC"
-            android:textSize="16sp"/>
-        <Button
-            android:id="@+id/calc_btn_mr"
-            style="@style/calc_btn_func"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="MR"
-            android:textSize="16sp"/>
-        <Button
-            android:id="@+id/calc_btn_mp"
-            style="@style/calc_btn_func"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="M+"
-            android:textSize="16sp"/>
-        <Button
-            android:id="@+id/calc_btn_mm"
-            style="@style/calc_btn_func"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="M-"
-            android:textSize="16sp"/>
-    </LinearLayout>
+        android:layout_weight="0.5"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="5dp">
+        <LinearLayout style="@style/calc_row_btn">
+            <Button
+                android:id="@+id/calc_btn_mc"
+                style="@style/calc_btn_memory"
+                android:text="@string/calc_btn_mc"/>
+            <Button
+                android:id="@+id/calc_btn_mr"
+                style="@style/calc_btn_memory"
+                android:text="@string/calc_btn_mr"/>
+            <Button
+                android:id="@+id/calc_btn_mplus"
+                style="@style/calc_btn_memory"
+                android:text="@string/calc_btn_mplus"/>
+            <Button
+                android:id="@+id/calc_btn_mminus"
+                style="@style/calc_btn_memory"
+                android:text="@string/calc_btn_mminus"/>
+            <Button
+                android:id="@+id/calc_btn_ms"
+                style="@style/calc_btn_memory"
+                android:text="@string/calc_btn_ms"/>
+            <Button
+                android:id="@+id/calc_btn_mdrop"
+                style="@style/calc_btn_memory"
+                android:text="@string/calc_btn_mdrop"/>
+        </LinearLayout>
         <LinearLayout style="@style/calc_row_btn">
             <Button
                 android:id="@+id/calc_btn_percent"

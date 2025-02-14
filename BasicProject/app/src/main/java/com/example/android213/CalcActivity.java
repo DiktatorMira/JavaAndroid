@@ -2,6 +2,7 @@ package com.example.android213;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.text.DecimalFormat;
@@ -16,9 +17,18 @@ public class CalcActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
-
         tvExpression = findViewById(R.id.calc_tv_expression);
         tvResult = findViewById(R.id.calc_tv_result);
+
+        if (savedInstanceState != null) {
+            currentNumber = savedInstanceState.getDouble("currentNumber");
+            lastNumber = savedInstanceState.getDouble("lastNumber");
+            memory = savedInstanceState.getDouble("memory");
+            pendingOperation = savedInstanceState.getString("pendingOperation", "");
+            isNewNumber = savedInstanceState.getBoolean("isNewNumber", true);
+            tvResult.setText(savedInstanceState.getString("tvResult", "0"));
+            tvExpression.setText(savedInstanceState.getString("tvExpression", ""));
+        }
 
         findViewById(R.id.calc_btn_0).setOnClickListener(this::OnDigitClick);
         findViewById(R.id.calc_btn_1).setOnClickListener(this::OnDigitClick);
@@ -50,8 +60,20 @@ public class CalcActivity extends AppCompatActivity {
 
         findViewById(R.id.calc_btn_mc).setOnClickListener(this::onMemoryClear);
         findViewById(R.id.calc_btn_mr).setOnClickListener(this::onMemoryRecall);
-        findViewById(R.id.calc_btn_mp).setOnClickListener(this::onMemoryAdd);
-        findViewById(R.id.calc_btn_mm).setOnClickListener(this::onMemorySubtract);
+        findViewById(R.id.calc_btn_mplus).setOnClickListener(this::onMemoryAdd);
+        findViewById(R.id.calc_btn_mminus).setOnClickListener(this::onMemorySubtract);
+        findViewById(R.id.calc_btn_ms).setOnClickListener(this::onMemoryStore);
+        findViewById(R.id.calc_btn_mdrop).setOnClickListener(this::onMemoryDropClick);
+    }
+    @Override protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putDouble("currentNumber", currentNumber);
+        outState.putDouble("lastNumber", lastNumber);
+        outState.putDouble("memory", memory);
+        outState.putString("pendingOperation", pendingOperation);
+        outState.putBoolean("isNewNumber", isNewNumber);
+        outState.putString("tvResult", tvResult.getText().toString());
+        outState.putString("tvExpression", tvExpression.getText().toString());
     }
     private void calculateResult() {
         switch (pendingOperation) {
@@ -162,4 +184,28 @@ public class CalcActivity extends AppCompatActivity {
     }
     private void onMemoryClear(View view) { memory = 0; }
     private void onMemoryStore(View view) { memory = currentNumber; }
+    private void onMemoryDropClick(View view) {
+        PopupMenu popup = new PopupMenu(this, view);
+        popup.getMenu().add("MC - Memory Clear").setOnMenuItemClickListener(item -> {
+            onMemoryClear(view);
+            return true;
+        });
+        popup.getMenu().add("MR - Memory Recall").setOnMenuItemClickListener(item -> {
+            onMemoryRecall(view);
+            return true;
+        });
+        popup.getMenu().add("MS - Memory Store").setOnMenuItemClickListener(item -> {
+            onMemoryStore(view);
+            return true;
+        });
+        popup.getMenu().add("M+ - Memory Add").setOnMenuItemClickListener(item -> {
+            onMemoryAdd(view);
+            return true;
+        });
+        popup.getMenu().add("M- - Memory Subtract").setOnMenuItemClickListener(item -> {
+            onMemorySubtract(view);
+            return true;
+        });
+        popup.show();
+    }
 }

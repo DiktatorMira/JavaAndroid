@@ -12,5 +12,5 @@
     <color name="calc_button_func_bg">#363637</color>
     <color name="calc_button_digit_bg">#474748</color>
     <color name="calc_button_equal_bg">#2a4993</color>
-    <color name="calc_button_memory_bg">#2d2d2e</color>
+    <color name="calc_button_memory_bg">#262627</color>
 </resources>
