@@ -2,6 +2,7 @@
     <string name="app_name">Android213</string>
     <string name="main_tv_title">Знакомство с Android</string>
     <string name="main_btn_calc">Калькулятор</string>
+    <string name="main_btn_game">Игра 2048</string>
     <!-- Калькулятор -->
     <string name="calc_tv_title">Калькулятор</string>
     <string name="calc_btn_0">0</string>
@@ -34,4 +35,9 @@
     <string name="calc_btn_mminus">M-</string>
     <string name="calc_btn_ms">MS</string>
     <string name="calc_btn_mdrop">M▼</string>
+    <!-- 2048 -->
+    <string name="game_tv_title">2048</string>
+    <string name="game_tv_hint">Join the numbers and get to the 2048 tile!</string>
+    <string name="game_btn_new">NEW</string>
+    <string name="game_btn_undo">UNDO</string>
 </resources>
