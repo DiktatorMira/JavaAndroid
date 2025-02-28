@@ -41,15 +41,23 @@
             android:text="@string/main_btn_calc"
             android:textSize="25sp"
             app:backgroundTint="@null" />
-
         <Button
             android:id="@+id/button_game"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginBottom="100sp"
+            android:layout_marginBottom="40sp"
             android:layout_gravity="center"
             android:background="@drawable/main_rounded_button"
             android:text="@string/main_btn_game"
+            android:textSize="25sp"
+            app:backgroundTint="@null" />
+        <Button
+            android:id="@+id/button_anim"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/main_rounded_button"
+            android:text="Анимации"
             android:textSize="25sp"
             app:backgroundTint="@null" />
     </LinearLayout>
