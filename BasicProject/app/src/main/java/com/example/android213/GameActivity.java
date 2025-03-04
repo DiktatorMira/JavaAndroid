@@ -6,7 +6,6 @@ import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -30,7 +29,6 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_game);
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.game_layout_main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -46,7 +44,10 @@ public class GameActivity extends AppCompatActivity {
         LinearLayout gameField = findViewById(R.id.game_layout_field);
         gameField.post(() -> {
             int vw = this.getWindow().getDecorView().getWidth(), fieldMargin = 20;
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(vw - 2 * fieldMargin, vw - 2 * fieldMargin);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    vw - 2 * fieldMargin,
+                    vw - 2 * fieldMargin
+            );
             layoutParams.setMargins(fieldMargin, fieldMargin, fieldMargin, fieldMargin);
             layoutParams.gravity = Gravity.CENTER;
             gameField.setLayoutParams(layoutParams);
@@ -126,8 +127,7 @@ public class GameActivity extends AppCompatActivity {
         tiles[i][j] = random.nextInt(10) == 0 ? 4 : 2;
         return true;
     }
-    @SuppressLint("DiscouragedApi")
-    private void UpdateField() {
+    @SuppressLint("DiscouragedApi") private void UpdateField() {
         tvScore.setText(getString(R.string.game_tv_score_tpl, ScoreToString(score)));
         tvBest.setText(getString(R.string.game_tv_best_tpl, ScoreToString(bestScore)));
 
