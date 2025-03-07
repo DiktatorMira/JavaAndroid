@@ -10,7 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class AnimActivity extends AppCompatActivity {
-    private Animation alphaAnimtion, scaleAnimation, scaleAnimation2;
+    private Animation alphaAnimation, scale1Animation, scale2Animation, rotate1Animation, rotate2Animation, translateAnimation;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,20 +21,36 @@ public class AnimActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        alphaAnimtion = AnimationUtils.loadAnimation(this, R.anim.demo_alpha);
-        scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.demo_scale);
-        scaleAnimation2 = AnimationUtils.loadAnimation(this, R.anim.demo_scale2);
+
+        alphaAnimation = AnimationUtils.loadAnimation(this, R.anim.demo_alpha);
+        scale1Animation = AnimationUtils.loadAnimation(this, R.anim.demo_scale_1);
+        scale2Animation = AnimationUtils.loadAnimation(this, R.anim.demo_scale_2);
+        rotate1Animation = AnimationUtils.loadAnimation(this, R.anim.demo_rotate_1);
+        rotate2Animation = AnimationUtils.loadAnimation(this, R.anim.demo_rotate_2);
+        translateAnimation = AnimationUtils.loadAnimation(this, R.anim.demo_translate);
         findViewById( R.id.anim_v_alpha ).setOnClickListener( this::onAlphaClick );
-        findViewById( R.id.anim_v_scale ).setOnClickListener( this::onScaleClick );
+        findViewById( R.id.anim_v_scale_1 ).setOnClickListener( this::onScale1Click );
         findViewById( R.id.anim_v_scale_2 ).setOnClickListener( this::onScale2Click );
+        findViewById( R.id.anim_v_rotate_1 ).setOnClickListener( this::onRotate1Click );
+        findViewById( R.id.anim_v_rotate_2 ).setOnClickListener( this::onRotate2Click );
+        findViewById( R.id.anim_v_translate ).setOnClickListener( this::onTranslateClick );
     }
-    private void onAlphaClick(View view) {
-        view.startAnimation(alphaAnimtion);
+    private void onAlphaClick( View view ) {
+        view.startAnimation(alphaAnimation);
     }
-    private void onScaleClick(View view) {
-        view.startAnimation(scaleAnimation);
+    private void onScale1Click( View view ) {
+        view.startAnimation(scale1Animation);
     }
-    private void onScale2Click(View view) {
-        view.startAnimation(scaleAnimation2);
+    private void onScale2Click( View view ) {
+        view.startAnimation(scale2Animation);
+    }
+    private void onRotate1Click( View view ) {
+        view.startAnimation(rotate1Animation);
+    }
+    private void onRotate2Click( View view ) {
+        view.startAnimation(rotate2Animation);
+    }
+    private void onTranslateClick( View view ) {
+        view.startAnimation(translateAnimation);
     }
 }

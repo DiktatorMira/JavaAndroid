@@ -42,9 +42,11 @@
     <string name="game_btn_undo">UNDO</string>
     <string name="game_tv_score_tpl">Score\n%s</string>
     <string name="game_tv_best_tpl">Best\n%s</string>
-
+    <!-- Анимации -->
+    <string name="main_btn_anim">Анимировать</string>
     <string name="anim_tv_animations">Анимации</string>
     <string name="anim_tv_alpha">Альфа</string>
     <string name="anim_tv_scale">Масштабирование</string>
     <string name="anim_tv_rotate">Вращение</string>
+    <string name="anim_tv_translate">Перевод</string>
 </resources>

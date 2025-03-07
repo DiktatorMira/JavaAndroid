@@ -10,20 +10,19 @@ import androidx.annotation.Nullable;
 public class OnSwipeListener implements View.OnTouchListener {
     private final GestureDetector gestureDetector;
 
-    public OnSwipeListener( Context context ) {
-        gestureDetector = new GestureDetector( context, new GestureListener()) ;
+    public OnSwipeListener(Context context) {
+        gestureDetector = new GestureDetector(context, new GestureListener());
     }
     @SuppressLint("ClickableViewAccessibility")
-    @Override public boolean onTouch( View view, MotionEvent motionEvent ) {
-        return gestureDetector.onTouchEvent( motionEvent );
+    @Override public boolean onTouch(View view, MotionEvent motionEvent) {
+        return gestureDetector.onTouchEvent(motionEvent);
     }
     public void onSwipeBottom() {}
     public void onSwipeLeft() {}
     public void onSwipeRight() {}
     public void onSwipeTop() {}
     private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
-        private final static int minSwipeDistance = 100;
-        private final static int minSwipeVelocity = 100;
+        private final static int minSwipeDistance = 100, minSwipeVelocity = 100;
 
         @Override public boolean onDown(@NonNull MotionEvent e) { return true; }
         @Override public boolean onFling(@Nullable MotionEvent e1, @NonNull MotionEvent e2, float velocityX, float velocityY) {
