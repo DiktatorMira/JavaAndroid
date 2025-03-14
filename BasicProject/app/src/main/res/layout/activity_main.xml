@@ -55,9 +55,19 @@
             android:id="@+id/button_anim"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginBottom="40sp"
             android:layout_gravity="center"
             android:background="@drawable/main_rounded_button"
             android:text="Анимации"
+            android:textSize="25sp"
+            app:backgroundTint="@null" />
+        <Button
+            android:id="@+id/button_rate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/main_rounded_button"
+            android:text="Курс валют"
             android:textSize="25sp"
             app:backgroundTint="@null" />
     </LinearLayout>
